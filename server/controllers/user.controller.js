@@ -19,7 +19,7 @@ export const register = async(req,res) => {
         profilePhoto
       })
 
-      return res.status(400).json({
+      return res.status(200).json({
         message:"Account created successfully",
         success:true
       })
@@ -50,6 +50,16 @@ export const login=async(req,res)=>{
      catch(err){
         console.log(err);
      }
+}
+export const logout = async(req,res)=>{
+  try{
+        return res.status(200).cookie("token","",{maxAge:0}).json({
+          message:"Logged out Successfully."
+        })
+  }
+  catch(err){
+    res.status(500).json({msg:error.message})
+  }
 }
 
 

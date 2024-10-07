@@ -5,20 +5,23 @@ const emailDetail = mongoose.Schema({
         type:String,
         required:true
        },
-       sunject:{
+       subject:{
         type:String,
         required:true
        },
-       password:{
+       message:{
         type:String,
         required:true
        },
        profilePhoto:{
-        type:String,
-        required:true
+        type:String
+       },
+       userId:{
+         type:mongoose.Schema.Types.ObjectId,
+         ref:'User'
        }
 },{
-    Timestamps:true
+    timestamps:true
 })
 
 export default mongoose.model("email",emailDetail)

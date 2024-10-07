@@ -4,6 +4,7 @@ import cors from 'cors'
 import cookieParser from "cookie-parser"
 import mongoDbConnect from './mongoConnect.js'
 import userRoute from "./userRoutes/user.route.js"
+import emailRoute from "./userRoutes/email.route.js"
 const app = express()
 
 dotenv.config({})
@@ -16,6 +17,7 @@ app.use(cors())
 
 //route
 app.use('/user',userRoute)
+app.use('/email',emailRoute)
 
 //listening at port 8000
 app.listen(process.env.PORT,()=>{
